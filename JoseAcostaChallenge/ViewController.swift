@@ -37,17 +37,17 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBAction func buttonPressed(_ sender: UIButton) {
         let parser = TextParser()
         let grid = parser.parse(textView.text)
-        let finder = PathSearch()
-        let result = finder.find(grid)
+        let searcher = PathSearch()
+        let result = searcher.search(grid)
         show(result)
     }
     
     
     fileprivate func show(_ result: (Bool, Int, Array<Int>)) {
-        let (success, resistance, path) = result
+        let (success, cost, path) = result
         
         var message = success ? "Yes" : "No"
-        message += "\n" + String(resistance)
+        message += "\n" + String(cost)
         message += "\n" + path.map(){x in String(x)}.joined(separator: " ")
         
         // Create Alert and Add Action

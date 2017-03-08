@@ -6,15 +6,15 @@
 //  Copyright © 2017 JoseAcosta. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class TextParser {
     
     init() {
     }
     
-    func parse(_ input: String) -> Array<Array<Int>> {
-        var matrix: Array<Array<Int>> = []
+    func parse(_ input: String) -> [[Int]] {
+        var matrix: [[Int]] = []
         
         let rowStrings = input.components(separatedBy: "\n")
         for rowString in rowStrings {

@@ -23,17 +23,17 @@ class TextParserTest: XCTestCase {
     }
     
     func testSingleValue() {
-        let matrix: Array<Array<Int>> = [[1]]
+        let matrix: [[Int]] = [[1]]
         XCTAssertEqual(matrix[0], out.parse("1")[0])
     }
     
     func testSingleRow() {
-        let matrix: Array<Array<Int>> = [[1,2,3]]
+        let matrix: [[Int]] = [[1,2,3]]
         XCTAssertEqual(matrix[0], out.parse("1 2 3")[0])
     }
     
     func testTwoRows() {
-        let matrix: Array<Array<Int>> = [[1,2,3],[4,5,6]]
+        let matrix: [[Int]] = [[1,2,3],[4,5,6]]
         XCTAssertEqual(matrix[0], out.parse("1 2 3\n4 5 6")[0])
         XCTAssertEqual(matrix[1], out.parse("1 2 3\n4 5 6")[1])
     }
