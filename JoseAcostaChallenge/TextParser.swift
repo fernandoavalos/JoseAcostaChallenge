@@ -22,15 +22,18 @@ class TextParser {
                 break
             }
             let colStrings = rowString.components(separatedBy: " ")
-            matrix.append(colStrings.map() { x in Int(x) ?? 0 })
+            let cleanColStrings = colStrings.filter({$0 != ""})
+            matrix.append(cleanColStrings.map() { x in Int(x) ?? 0 })
         }
         
-        // Validate all rows must have the same number of columns
+        //Validate all rows must have the same number of columns
         var width: Int!
         for row in matrix {
             width = width ?? row.count
             if row.count != width {
-                fatalError("All rows must have the same number of columns")
+                let message = "All rows must have the same number of columns"
+                let controller = ViewController()
+                controller.errorShow(message)
             }
         }
         
