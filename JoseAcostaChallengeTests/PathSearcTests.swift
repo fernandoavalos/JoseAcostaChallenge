@@ -162,4 +162,15 @@ class PathSearcTests: XCTestCase {
         XCTAssertEqual(49, cost)
         XCTAssertEqual([1,3,3], path)
     }
+    
+    func testExample2() {
+        let (success, cost, path) = out.search([
+            [48,4,4],
+            [44,4,3],
+            [60,3,2]
+            ])
+        XCTAssertTrue(success)
+        XCTAssertEqual(49, cost)
+        XCTAssertEqual([2,3,3], path)
+    }
 }

@@ -40,7 +40,7 @@ class PathSearch {
         //Start the search
         for row in 1...g.rows {
             let rowLowest = searchFrom(g, 0, [], (row, 1))
-            if (lowest == nil || (rowLowest.1 < lowest.1 && rowLowest.0 == true)) {
+            if (lowest == nil || (rowLowest.1 < lowest.1 && rowLowest.0 == true) || (lowest.0 == false && rowLowest.0 == true)) {
                 lowest = rowLowest
             }
         }
