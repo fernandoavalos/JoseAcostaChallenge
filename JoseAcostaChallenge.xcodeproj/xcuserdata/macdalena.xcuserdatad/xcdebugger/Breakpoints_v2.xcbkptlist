@@ -52,11 +52,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JoseAcostaChallenge/PathSearch.swift"
-            timestampString = "510783943.192128"
+            timestampString = "510792447.356183"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "searchFrom(_:_:_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JoseAcostaChallenge/PathSearch.swift"
+            timestampString = "510793221.026784"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "searchFrom(_:_:_:_:)"
             landmarkType = "7">
          </BreakpointContent>
