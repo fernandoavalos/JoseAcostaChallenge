@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA401BBF1E7988D900AABFA2 /* MinCostPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA401BBE1E7988D900AABFA2 /* MinCostPath.swift */; };
 		FA76FBAF1E6F4078003FC7D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76FBAE1E6F4078003FC7D2 /* AppDelegate.swift */; };
 		FA76FBB41E6F4078003FC7D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA76FBB21E6F4078003FC7D2 /* Main.storyboard */; };
 		FA76FBB61E6F4078003FC7D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA76FBB51E6F4078003FC7D2 /* Assets.xcassets */; };
@@ -17,7 +18,7 @@
 		FA9AB9B71E707F3A00A4D649 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AB9B61E707F3A00A4D649 /* Grid.swift */; };
 		FA9AB9B91E70803D00A4D649 /* PathSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AB9B81E70803D00A4D649 /* PathSearch.swift */; };
 		FA9AB9BD1E70921C00A4D649 /* GridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AB9BC1E70921C00A4D649 /* GridTests.swift */; };
-		FA9AB9BF1E7092CF00A4D649 /* PathSearcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AB9BE1E7092CF00A4D649 /* PathSearcTests.swift */; };
+		FA9AB9BF1E7092CF00A4D649 /* MinCostPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AB9BE1E7092CF00A4D649 /* MinCostPathTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA401BBE1E7988D900AABFA2 /* MinCostPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinCostPath.swift; sourceTree = "<group>"; };
 		FA76FBAB1E6F4078003FC7D2 /* JoseAcostaChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoseAcostaChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA76FBAE1E6F4078003FC7D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA76FBB31E6F4078003FC7D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,7 +47,7 @@
 		FA9AB9B61E707F3A00A4D649 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		FA9AB9B81E70803D00A4D649 /* PathSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathSearch.swift; sourceTree = "<group>"; };
 		FA9AB9BC1E70921C00A4D649 /* GridTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTests.swift; sourceTree = "<group>"; };
-		FA9AB9BE1E7092CF00A4D649 /* PathSearcTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathSearcTests.swift; sourceTree = "<group>"; };
+		FA9AB9BE1E7092CF00A4D649 /* MinCostPathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinCostPathTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				FA9AB9B41E707ECC00A4D649 /* TextParser.swift */,
 				FA9AB9B61E707F3A00A4D649 /* Grid.swift */,
 				FA9AB9B81E70803D00A4D649 /* PathSearch.swift */,
+				FA401BBE1E7988D900AABFA2 /* MinCostPath.swift */,
 				FA76FBB21E6F4078003FC7D2 /* Main.storyboard */,
 				FA76FBB51E6F4078003FC7D2 /* Assets.xcassets */,
 				FA76FBB71E6F4078003FC7D2 /* LaunchScreen.storyboard */,
@@ -105,7 +108,7 @@
 			children = (
 				FA76FBC31E6F4079003FC7D2 /* TextParserTests.swift */,
 				FA9AB9BC1E70921C00A4D649 /* GridTests.swift */,
-				FA9AB9BE1E7092CF00A4D649 /* PathSearcTests.swift */,
+				FA9AB9BE1E7092CF00A4D649 /* MinCostPathTests.swift */,
 				FA76FBC51E6F4079003FC7D2 /* Info.plist */,
 			);
 			path = JoseAcostaChallengeTests;
@@ -217,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA9AB9B91E70803D00A4D649 /* PathSearch.swift in Sources */,
+				FA401BBF1E7988D900AABFA2 /* MinCostPath.swift in Sources */,
 				FA9AB9B21E707A3100A4D649 /* ViewController.swift in Sources */,
 				FA9AB9B51E707ECC00A4D649 /* TextParser.swift in Sources */,
 				FA76FBAF1E6F4078003FC7D2 /* AppDelegate.swift in Sources */,
@@ -228,7 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA9AB9BF1E7092CF00A4D649 /* PathSearcTests.swift in Sources */,
+				FA9AB9BF1E7092CF00A4D649 /* MinCostPathTests.swift in Sources */,
 				FA76FBC41E6F4079003FC7D2 /* TextParserTests.swift in Sources */,
 				FA9AB9BD1E70921C00A4D649 /* GridTests.swift in Sources */,
 			);
