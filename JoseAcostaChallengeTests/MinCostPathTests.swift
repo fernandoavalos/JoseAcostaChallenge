@@ -195,6 +195,16 @@ class PathSearcTests: XCTestCase {
             ], 1, 19)
         XCTAssertFalse(success)
         XCTAssertEqual(50, cost)
-        XCTAssertEqual([1,1,2,1,2,1,2,1,2,1,2], path)
+        XCTAssertEqual([1,2,1,2,1,2,1,2,1,2,1], path)
+    }
+    
+    func testExample6() {
+        let (success, cost, path) = out.minCost([
+            [51, -2],
+            [52, 3]
+            ], 1, 1)
+        XCTAssertFalse(success)
+        XCTAssertEqual(0, cost)
+        XCTAssertEqual([], path)
     }
 }
