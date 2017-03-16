@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
-        enableButton(false)
+        enableButton(true)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -42,10 +42,12 @@ class ViewController: UIViewController, UITextViewDelegate {
         if validate(textView.text) {
             let parser = TextParser()
             let grid = parser.parse(textView.text)
-            let searcher = PathSearch()
-            let result = searcher.search(grid)
+            let minCost = MinCostPath()
+            let result = minCost.minCost(grid, grid.count - 1, grid[0].count - 1)
             show(result)
         }
+        
+        
     }
     
     
