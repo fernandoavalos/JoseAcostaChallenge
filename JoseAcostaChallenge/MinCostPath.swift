@@ -10,39 +10,99 @@ import Foundation
 
 class MinCostPath {
     
-    
     func min(_ x: Int?, _ y: Int?, _ z: Int?) -> Int? {
-        if let x = x, let y = y, let z = z {
-            if x < y {
+        if let x = x {
+            if let y = y {
+                if let z = z {
+                    if x < y {
+                        if x < z {
+                            return (x > 50 ? nil : x)
+                        } else {
+                            return (z > 50 ? nil : z)
+                        }
+                    } else if y < z {
+                        return (y > 50 ? nil : y)
+                    } else {
+                        return (z > 50 ? nil : z)
+                    }
+                } else if x < y {
+                    return (x > 50 ? nil : x)
+                } else {
+                    return (y > 50 ? nil : y)
+                }
+            } else if let z = z {
                 if x < z {
                     return (x > 50 ? nil : x)
                 } else {
                     return (z > 50 ? nil : z)
                 }
-            } else if y < z {
-                return (y > 50 ? nil : y)
             } else {
-                return (z > 50 ? nil : z)
+                return (x > 50 ? nil : x)
             }
+        } else if let y = y {
+            if let z = z {
+                if y < z {
+                    return (y > 50 ? nil : y)
+                } else {
+                    return (z > 50 ? nil : z)
+                }
+            } else {
+                return (y > 50 ? nil : y)
+            }
+        } else if let z = z {
+            return (z > 50 ? nil : z)
         } else {
             return nil
         }
+        
     }
     
-    func minPath(_ x: Int, _ y: Int, _ z: Int, _ prevRow: Int, _ maxRow: Int, _ maxColumn: Int) -> Int {
-        if x <= y {
-            if x <= z {
-                return (prevRow == 1 ? maxRow : prevRow - 1)
+    func minPath(_ x: Int?, _ y: Int?, _ z: Int?, _ prevRow: Int, _ maxRow: Int, _ maxColumn: Int) -> Int? {
+        
+        if let x = x {
+            if let y = y {
+                if let z = z {
+                    if x <= y {
+                        if x <= z {
+                            return (prevRow == 1 ? maxRow : prevRow - 1) //x
+                        } else {
+                            return (prevRow == maxRow ? 1 : prevRow + 1) //z
+                        }
+                    } else if y <= z {
+                        return prevRow                               //y
+                    } else {
+                        return (prevRow == maxRow ? 1 : prevRow + 1) //z
+                    }
+                } else if x < y {
+                    return (prevRow == 1 ? maxRow : prevRow - 1) //x
+                } else {
+                    return prevRow                               //y
+                }
+            } else if let z = z {
+                if x < z {
+                    return (prevRow == 1 ? maxRow : prevRow - 1) //x
+                } else {
+                    return (prevRow == maxRow ? 1 : prevRow + 1) //z
+                }
             } else {
-                return (prevRow == maxRow ? 1 : prevRow + 1)
+                return (prevRow == 1 ? maxRow : prevRow - 1) //x
             }
+        } else if let y = y {
+            if let z = z {
+                if y < z {
+                    return prevRow                               //y
+                } else {
+                    return (prevRow == maxRow ? 1 : prevRow + 1) //z
+                }
+            } else {
+                return prevRow                               //y
+            }
+        } else if let _ = z {
+            return (prevRow == maxRow ? 1 : prevRow + 1) //z
         } else {
-            if z <= y {
-                return (prevRow == maxRow ? 1 : prevRow + 1)
-            } else {
-                return prevRow
-            }
+            return nil
         }
+        
     }
     
     func minCost(_ matrix: [[Int]], _ mNumRows: Int, _ numCols: Int) -> (Bool, Int, [Int]) {
@@ -51,8 +111,13 @@ class MinCostPath {
         if mNumRows == 0 && numCols == 0 {
             return (matrix[0][0] <= 50 ? (true, matrix[0][0], [1]) : (false, 0, []))
         } else if numCols == 0 {
-            let lowest = lowestCostOn(column: 0, from: matrix).1
-            return (lowest <= 50 ? (true, matrix[lowest - 1][0], [lowest]) : (false, 0, []))
+            let lowestSucces = lowestCostOn(column: 0, from: matrix)
+            if lowestSucces.0 == true {
+                return (lowestSucces.1 <= 50 ? (true, matrix[lowestSucces.1 - 1][0], [lowestSucces.1]) : (false, 0, []))
+            } else {
+                return (false, 0, [])
+            }
+            
         }
         
         //Build the first column on tempCost Array
@@ -85,6 +150,9 @@ class MinCostPath {
             if lowestSucces.0 == true {
                 path[item] = lowestSucces.1
                 lowestCost = tempCost[path[item] - 1][item]!
+                if item == 0 {
+                    return (item == numCols + 1 ? (true, lowestCost, path) : (false, lowestCost, path))
+                }
                 break
             } else if item == 0 {
                 return (false, 0, [])
@@ -98,32 +166,15 @@ class MinCostPath {
             wentThrough = true
         }
         
-        //var counter = 0
         //MUST BE 1...
         for j in (1...(path.count - 1)).reversed() {
             let x = (path[j] == 1 ? tempCost[mNumRows][j - 1] : tempCost[path[j] - 2][j - 1])
             let y = tempCost[path[j] - 1][j - 1]
             let z = (path[j] == mNumRows + 1 ? tempCost[0][j - 1] : tempCost[path[j]][j - 1])
             
-//            if !wentThrough && x! > 50 && y! > 50 && z! > 50 {
-//                counter += 1
-//            }
-            path[j - 1] = minPath(x!, y!, z!, path[j], mNumRows + 1, numCols + 1)
+            path[j - 1] = minPath(x, y, z, path[j], mNumRows + 1, numCols + 1)!
         }
         
-//        if !wentThrough {
-//            for _ in 0...counter {
-//                path.removeLast()
-//            }
-//            if path.count == 0 {
-//                lowestCost = 0
-//            } else {
-//                lowestCost = tempCost[path.last! - 1][path.count - 1]!
-//            }
-//            return (wentThrough, lowestCost, path)
-//        } else {
-//            return (wentThrough, lowestCost, path)
-//        }
         return (wentThrough, lowestCost, path)
 
     }
@@ -138,8 +189,12 @@ class MinCostPath {
         
         var lowest = 0
         
-        if column.count == 0 {
-            return (false, 0)
+        if column.count == 1 {
+            if let item = column[lowest] {
+                return (item > 50 ? (false, 0) : (true, lowest + 1))
+            } else {
+                return (false, 0)
+            }
         } else if !(column.count == 1) {
             for i in 1...column.count - 1 {
                 if let prevLow = column[lowest] {

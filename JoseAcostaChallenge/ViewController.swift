@@ -79,10 +79,19 @@ class ViewController: UIViewController, UITextViewDelegate {
     fileprivate func validate(_ input: String) -> Bool {
         var width: Int!
         let rows = input.components(separatedBy: "\n")
-        for row in rows {
+        //celan "" rows
+        let cleanRowStrings = rows.filter({$0 != ""})
+        
+        if cleanRowStrings.count == 0 {
+            let message = "There is no matrix."
+            errorShow(message)
+            return false
+        }
+        
+        for row in cleanRowStrings {
             let items = row.components(separatedBy: " ")
             
-            //clean "" items
+            //clean "" columns
             let cleanItems = items.filter({$0 != ""})
             
             if width == nil {
@@ -102,6 +111,7 @@ class ViewController: UIViewController, UITextViewDelegate {
                 }
             }
         }
+        
         return width != nil
     }
     

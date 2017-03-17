@@ -17,7 +17,8 @@ class TextParser {
         var matrix: [[Int]] = []
         
         let rowStrings = input.components(separatedBy: "\n")
-        for rowString in rowStrings {
+        let cleanRowStrings = rowStrings.filter({$0 != ""})
+        for rowString in cleanRowStrings {
             if rowString.isEmpty {
                 break
             }
